@@ -78,8 +78,8 @@
     <p>La plupart des questions sont posées pour savoir si les mineurs souhaitent effectuer <b>des réductions dans le but d’orienter l’argent différemment</b> et si tel est le cas, comment. Cette démarche a été en partie motivée par les questionnements éthiques et sociaux de nombreuses personnes, ainsi que par l’état de la relation entre les élèves des Mines et les entreprises.
     </p> <p>Afin de se faire une idée plus claire de la situation, il est vivement conseillé de regarder les slides (auxquels il peut être fait référence dans le sondage) sur les coûts de la vie associative ainsi que les recherches sourcées sur Total, Safran et la Sogé, réalisées par des groupes de 1A volontaires.
     </p>
-    <p><u>Lien des slides</u> : <a href="https://docs.google.com/presentation/d/1gY3GTyjg5gTOq3WoYr2PX_6GDgyZj79V/edit?usp=sharing&ouid=106980314699681791212&rtpof=true&sd=true">Slides</a></p>
-    <p> <u>Lien des partenariats </u> : <a href="https://drive.google.com/file/d/1ElUTJaUepWxSqSUg8Ag-ubOPF8h-CKkT/view?usp=sharing">Partenariats</a></p>
+    <p><u>Lien des slides</u> : <a href="https://docs.google.com/presentation/d/1gY3GTyjg5gTOq3WoYr2PX_6GDgyZj79V/edit?usp=sharing&ouid=106980314699681791212&rtpof=true&sd=true">Slides sur la vie associative</a></p>
+    <p> <u>Lien des partenariats </u> : <a href="https://drive.google.com/drive/folders/1o9Sr5VLqQ987L0n7tqoUGUsZpA1zjioQ?usp=sharing">Recherche partenariats</a></p>
     <p><h3> <u> À qui s'adresse ce sondage ?</u></h3>
       Ce sondage s’adresse à l’ensemble des 1A, 2A, césurien.ne.s et 3A. 
       Pour les 1A, le vote est ouvert mardi 22 avril jusqu’à 23h59, pour les autres promotions jusqu’au mercredi 12h.
@@ -110,7 +110,7 @@
 <ul>
   <li>Une question en <span style="color: blue;">bleu</span> constitue un support à la réflexion des associations qui sont ou bien trop fraîchement nommées pour avoir une connaissance suffisante des sujets, ou bien non désireuses de communiquer par écrit leur décision finale et les raisons qui l’ont motivées, du moins dans le cadre proposé pour une question en rouge. Une question en bleu peut aussi ne pas concerner une association mais le système actuel en général.
   </li>
-  <li>Une question en <span style="color: red;"></span>rouge</span> constitue un indicateur pour les prises de décision des associations concernées. La manière dont elles tiendront compte de cet indicateur leur revient <b>entièrement</b>. Chaque association s’engage à communiquer par écrit aux promotions sa décision finale par rapport à la question rouge posée (quelle qu’elle soit) ainsi que les raisons qui l’ont motivées, et ce dans le délai qu’elle jugera adéquat.
+  <li>Une question en <span style="color: red;">rouge</span> constitue un indicateur pour les prises de décision des associations concernées. La manière dont elles tiendront compte de cet indicateur leur revient <b>entièrement</b>. Chaque association s’engage à communiquer par écrit aux promotions sa décision finale par rapport à la question rouge posée (quelle qu’elle soit) ainsi que les raisons qui l’ont motivées, et ce dans le délai qu’elle jugera adéquat.
   </li>
 </ul>
       </p>
@@ -150,9 +150,9 @@
         <option value="Neutre" onchange="updateSavings()">Neutre</option>
         <option value="Non pas vraiment" onchange="updateSavings()">Non pas vraiment</option>
         <option value="Non pas du tout" onchange="updateSavings()">Non pas du tout</option>
-      </select>
-      <label for= "pcv_remarque" style="color: blue;"> Remarques diverses :</label>
-      <textarea id="pcv_remarque" name="remarque" onchange="updateSavings()" style="width: 100%; border-radius: 6px; padding: 8px; border: 1px solid #ccc;"></textarea>
+      </select><br>
+      <label for= "pcv_remarque" style="color: blue;"> Remarques diverses :</label><br>
+      <textarea id="pcv_remarque" name="pcv_remarque" onchange="updateSavings()" style="width: 100%; border-radius: 6px; padding: 8px; border: 1px solid #ccc;"></textarea><br>
     </div>
   
     <div class="question">
@@ -182,8 +182,8 @@
   </label>
   <select id="total_energies_evenements" name="total_energies_evenements" required >
     <option value="" disabled selected hidden>Choisissez une option</option>
-    <option value="2 événements ou moins" onchange="updateSavings()">2 événements ou moins</option>
-    <option value="3 événements (nombre actuel)" onchange="updateSavings()">3 événements (nombre actuel)</option>
+    <option value="2 événements ou moins " onchange="updateSavings()">2 événements ou moins</option>
+    <option value="3 événements " onchange="updateSavings()">3 événements (nombre actuel)</option>
     <option value="Neutre" onchange="updateSavings()">Neutre</option>
   </select>
 
@@ -223,7 +223,7 @@
 
 <fieldset>
 
-  <legend style="color: blue;">Choisissez si vous le souhaitez des événements que vous enlèveriez à l’intégration ? </legend>
+  <legend style="color: blue;"><b>Choisissez si vous le souhaitez des événements que vous enlèveriez à l’intégration ? </b></fieldset></legend>
 
   <label>
     <input type="checkbox" name="integration[]" value="La péniche (balade)" onchange="updateSavings()"> La péniche (balade) (~3800€)
@@ -260,56 +260,62 @@
 <div class = "question">
   <!-- Question 5 - Les soirées -->
 <h3>Question 5 - Les soirées</h3>
-
+<p>
 <!-- 1. Le nombre de soirées prévues vous convient-il ? -->
-<label style="color : blue">Le nombre de soirées prévues vous convient-il ?</label> 
+<label style="color : blue">Le nombre de soirées prévues vous convient-il ?</label><br>
 <label><input type="radio" name="soirees_convenues" value="Oui" onchange="updateSavings()"> Oui</label><br>
 <label><input type="radio" name="soirees_convenues" value="Neutre" required onchange="updateSavings()"> Neutre</label><br>
 <label><input type="radio" name="soirees_convenues" value="Non" required onchange="updateSavings()"> Non</label><br>
-
+</p>
+<p>
 <!-- 2. Combien d’internes souhaitez-vous ? -->
-<label style="color : blue">Combien d’internes souhaitez-vous (5 prévues cette année) ?</label>
+<label style="color : blue">Combien d’internes souhaitez-vous (5 prévues cette année) ?</label><br>
 <label><input type="radio" name="nb_internes" value="trois" required onchange="updateSavings()"> 3</label><br>
 <label><input type="radio" name="nb_internes" value="quatre" required onchange="updateSavings()"> 4</label><br>
 <label><input type="radio" name="nb_internes" value="cinq" required onchange="updateSavings()"> 5</label><br>
 <label><input type="radio" name="nb_internes" value="six" required onchange="updateSavings()"> 6</label><br>
 <label><input type="radio" name="nb_internes" value="sept" required onchange="updateSavings()"> 7</label><br>
-<label><input type="radio" name="nb_internes" value="Neutre" required onchange="updateSavings()"> Neutre</label>
-
+<label><input type="radio" name="nb_internes" value="Neutre" required onchange="updateSavings()"> Neutre</label><br>
+</p>
+<p>
 <!-- 3. Combien d’externes souhaitez-vous ? -->
-<label style="color : blue">Combien d’externes souhaitez-vous (5 prévues cette année) ?</label>
+<label style="color : blue">Combien d’externes souhaitez-vous (5 prévues cette année) ?</label><br>
 <label><input type="radio" name="nb_externes" value="trois" required onchange="updateSavings()"> 3</label><br>
 <label><input type="radio" name="nb_externes" value="quatre" required onchange="updateSavings()"> 4</label><br>
 <label><input type="radio" name="nb_externes" value="cinq" required onchange="updateSavings()"> 5</label><br>
 <label><input type="radio" name="nb_externes" value="six" required onchange="updateSavings()"> 6</label><br>
 <label><input type="radio" name="nb_externes" value="sept" required onchange="updateSavings()"> 7</label><br>
-<label><input type="radio" name="nb_externes" value="Neutre" required onchange="updateSavings()">  Neutre</label>
+<label><input type="radio" name="nb_externes" value="Neutre" required onchange="updateSavings()">  Neutre</label><br>
+</p>
 
+<p>
 <!-- 4. Êtes-vous prêt à avoir moins d’externes si elles sont de meilleure qualité ? -->
 <label style="color : blue">
   À budget d’externes constant, je suis prêt à accepter d’avoir moins d’externes si les lieux sont considérés comme vraiment originaux / dignes d’intérêt et donc plus chers.
-</label>
+</label><br>
 <label><input type="radio" name="externes_qualite" value="Oui tout à fait" required onchange="updateSavings()"> Oui tout à fait</label><br>
 <label><input type="radio" name="externes_qualite" value="Oui plutôt" required onchange="updateSavings()"> Oui plutôt</label><br>
 <label><input type="radio" name="externes_qualite" value="Neutre" required onchange="updateSavings()"> Neutre</label><br>
 <label><input type="radio" name="externes_qualite" value="Non plutôt pas" required onchange="updateSavings()"> Non plutôt pas</label><br>
-<label><input type="radio" name="externes_qualite" value="Non pas du tout" required onchange="updateSavings()"> Non pas du tout</label>
-
+<label><input type="radio" name="externes_qualite" value="Non pas du tout" required onchange="updateSavings()"> Non pas du tout</label><br>
+</p>
+<p>
 <!-- 5. Êtes-vous satisfait du système d’Open Bar ? -->
 <label style="color : blue">
   Êtes-vous satisfait de ce système d’Open Bar ?
-</label>
+</label><br>
 <label><input type="radio" name="open_bar" value="Oui tout à fait" required onchange="updateSavings()"> Oui tout à fait</label><br>
 <label><input type="radio" name="open_bar" value="Oui plutôt" required onchange="updateSavings()"> Oui plutôt</label><br>
 <label><input type="radio" name="open_bar" value="Neutre" required onchange="updateSavings()"> Neutre</label><br>
 <label><input type="radio" name="open_bar" value="Pas vraiment" required onchange="updateSavings()"> Pas vraiment</label><br>
-<label><input type="radio" name="open_bar" value="Pas du tout" required onchange="updateSavings()"> Pas du tout</label>
-
+<label><input type="radio" name="open_bar" value="Pas du tout" required onchange="updateSavings()"> Pas du tout</label><br>
+</p>
+<p>
 <!-- 6. Remarques diverses -->
 <p>Remarques diverses :</p>
 <textarea name="remarques_soirees" style="width: 100%; border-radius: 6px; padding: 8px; border: 1px solid #ccc;" onchange="updateSavings()"></textarea>
 
-
+</p>
 
 </div>
 
@@ -317,7 +323,7 @@
   <h3>6. Le voyage BDE</h3>
 <p>La participation du BDE dans ce voyage a correspondu à 11 000€ cette année pour le voyage à Prague, en plus d’une participation de 5 500€ des mineur.euse.s, pour un total de 16 500€.  Cette année, le BDE souhaite faire payer chaque personne 100€ moins cher que le prix réel de son voyage, et prévoit 50 places, avec un budget prévoyant des économies globales [à confirmer]. </p>
   <label for= "voyage_remarque" style="color: blue;"> Remarques diverses :</label>
-  <textarea id="voyage_remarque" name="remarque" onchange="updateSavings()" style="width: 100%; border-radius: 6px; padding: 8px; border: 1px solid #ccc;"></textarea>
+  <textarea id="voyage_remarque" name="voyage_remarque" onchange="updateSavings()" style="width: 100%; border-radius: 6px; padding: 8px; border: 1px solid #ccc;"></textarea>
 </div>
 
 
@@ -329,30 +335,30 @@
 
 <fieldset>
 
-  <legend style="color: red;">Sélectionnez, pour chaque événement des campagnes BDE, si vous souhaitez qu’il soit supprimé : </legend>
+  <legend style="color: red;"> <b>Sélectionnez, pour chaque événement des campagnes BDE, si vous souhaitez qu’il soit supprimé : </b></legend><br>
 
   <label>
-    <input type="checkbox" name="campagne[]" value=4000 onchange="updateSavings()"> interne de chaque liste (~ 2000€ par liste)
+    <input type="checkbox" name="campagne[]" value="internes" onchange="updateSavings()"> interne de chaque liste (~ 2000€ par liste)
 
   </label><br>
 
   <label>
-    <input type="checkbox" name="campagne[]" value=10000 onchange="updateSavings()"> externe de chaque liste (~ 5000€ par liste)
+    <input type="checkbox" name="campagne[]" value="externes" onchange="updateSavings()"> externe de chaque liste (~ 5000€ par liste)
 
   </label><br>
 
   <label>
-    <input type="checkbox" name="campagne[]" value=1000 onchange="updateSavings()"> Activité 1 de chaque liste (~ 500€ par liste)
+    <input type="checkbox" name="campagne[]" value="activité 1" onchange="updateSavings()"> Activité 1 de chaque liste (~ 500€ par liste)
 
   </label><br>
 
   <label>
-    <input type="checkbox" name="campagne[]" value=1000 onchange="updateSavings()"> Activité 2 de chaque liste (~ 500€ par liste)
+    <input type="checkbox" name="campagne[]" value="activité 2" onchange="updateSavings()"> Activité 2 de chaque liste (~ 500€ par liste)
 
   </label><br>
 
   <label>
-    <input type="checkbox" name="campagne[]" value=0 onchange="updateSavings()"> Apéritif commun aux deux listes (coût ?)
+    <input type="checkbox" name="campagne[]" value="Apéro" onchange="updateSavings()"> Apéritif commun aux deux listes (coût ?)
 
   </label><br>
 
@@ -414,51 +420,51 @@
 
   <p>Si vous avez décidé de réaliser des économies, vous avez maintenant le choix sur la manière de les réinvestir. Vous pouvez choisir une ou deux façons de répartir l'argent, et préciser votre pensée si vous le souhaitez</p>
 
-  <p style="color: purple;"> Choisissez votre option 1</p>
+  <p style="color: purple;"> Choisissez votre option 1</p><br>
   <!-- 1. Réduire le poids d’un ou plusieurs partenaires -->
-  <label><input type="radio" name="dest_economie" value="Réduire le poids d’un ou plusieurs partenaires" onchange="updateSavings()"> Vous souhaitez réduire le poids d’un ou plusieurs partenaires (lien vers l’ensemble des partenaires, préciser) :</label><br>
-  <textarea name="dest_economie_partenaires" rows="3" cols="50" placeholder="Précisez le ou les partenariats..."></textarea><br><br>
+  <label><input type="radio" name="dest_economie_1" value="Réduire le poids d’un ou plusieurs partenaires" onchange="updateSavings()"> Vous souhaitez réduire le poids d’un ou plusieurs partenaires (<a href="https://drive.google.com/file/d/1ElUTJaUepWxSqSUg8Ag-ubOPF8h-CKkT/view?usp=sharing">Liste partenariats</a>) :</label><br>
+  <textarea name="dest_economie_partenaires" rows="3" cols="50" placeholder="Précisez le ou les partenariats..." onchange="updateSavings()"></textarea><br><br>
 
   <!-- 2. Faire de la sobriété -->
-  <label><input type="radio" name="dest_economie" value="Faire de la sobriété" onchange="updateSavings()"> Vous souhaitez faire de la sobriété (en tant que fin et non simplement moyen)</label><br><br>
+  <label><input type="radio" name="dest_economie_1" value="Faire de la sobriété" onchange="updateSavings()"> Vous souhaitez faire de la sobriété (en tant que fin et non simplement moyen)</label><br><br>
 
   <!-- 3. Redistribuer à la vie asso -->
-  <label><input type="radio" name="dest_economie" value="Redistribution à la vie associative" onchange="updateSavings()"> Vous souhaitez redistribuer l’argent dans la vie associative :</label><br>
-  <textarea name="dest_economie_vie_asso" rows="3" cols="50" placeholder="Précisez où vous aimeriez que cet argent soit redistribué..."></textarea><br><br>
+  <label><input type="radio" name="dest_economie_1" value="Redistribution à la vie associative" onchange="updateSavings()"> Vous souhaitez redistribuer l’argent dans la vie associative :</label><br>
+  <textarea name="dest_economie_vie_asso" rows="3" cols="50" placeholder="Précisez où vous aimeriez que cet argent soit redistribué..." onchange="updateSavings()"></textarea><br><br>
 
   <!-- 4. Utilité sociale / caritative / écologique -->
-  <label><input type="radio" name="dest_economie" value="Utilité sociale/caritative/écologique" onchange="updateSavings()"> Vous souhaitez utiliser cet argent pour des projets avec une utilité sociale et/ou caritative et/ou écologique forte :</label><br>
-  <textarea name="dest_economie_utile" rows="3" cols="50" placeholder="Précisez éventuellement vos idées..."></textarea><br><br>
+  <label><input type="radio" name="dest_economie_1" value="Utilité sociale/caritative/écologique" onchange="updateSavings()"> Vous souhaitez utiliser cet argent pour des projets avec une utilité sociale et/ou caritative et/ou écologique forte :</label><br>
+  <textarea name="dest_economie_utile" rows="3" cols="50" placeholder="Précisez éventuellement vos idées..." onchange="updateSavings()"></textarea><br><br>
 
   <!-- 5. Autre -->
-  <label><input type="radio" name="dest_economie" value="Autre" onchange="updateSavings()"> Autre :</label><br>
-  <textarea name="dest_economie_autre" rows="3" cols="50" placeholder="Votre proposition..."></textarea><br><br>
+  <label><input type="radio" name="dest_economie_1" value="Autre" onchange="updateSavings()"> Autre :</label><br>
+  <textarea name="dest_economie_autre" rows="3" cols="50" placeholder="Votre proposition..." onchange="updateSavings()"></textarea><br><br>
 
   <!-- 6. Pas d’économie -->
-  <label><input type="radio" name="dest_economie" value="Pas d’économie" onchange="updateSavings()"> Pas d’économie</label><br><br>
+  <label><input type="radio" name="dest_economie_1" value="Pas d’économie" onchange="updateSavings()"> Pas d’économie</label><br><br>
 
   <p style="color: purple;"> Choisissez votre option 2</p>
   <!-- 1. Réduire le poids d’un ou plusieurs partenaires -->
-  <label><input type="radio" name="dest_economie" value="Réduire le poids d’un ou plusieurs partenaires"  onchange="updateSavings()"> Vous souhaitez réduire le poids d’un ou plusieurs partenaires (lien vers l’ensemble des partenaires, préciser) :</label><br>
-  <textarea name="dest_economie_partenaires" rows="3" cols="50" placeholder="Précisez le ou les partenariats..."></textarea><br><br>
+  <label><input type="radio" name="dest_economie_2" value="Oui"  onchange="updateSavings()"> Vous souhaitez réduire le poids d’un ou plusieurs partenaires (<a href="https://drive.google.com/file/d/1ElUTJaUepWxSqSUg8Ag-ubOPF8h-CKkT/view?usp=sharing">Liste partenariats</a>) :</label><br>
+  <textarea name="dest_economie_partenaires" rows="3" cols="50" placeholder="Précisez le ou les partenariats..." onchange="updateSavings()"></textarea><br><br>
 
   <!-- 2. Faire de la sobriété -->
-  <label><input type="radio" name="dest_economie" value="Faire de la sobriété" onchange="updateSavings()"> Vous souhaitez faire de la sobriété (en tant que fin et non simplement moyen)</label><br><br>
+  <label><input type="radio" name="dest_economie_2" value="Faire de la sobriété" onchange="updateSavings()"> Vous souhaitez faire de la sobriété (en tant que fin et non simplement moyen)</label><br><br>
 
   <!-- 3. Redistribuer à la vie asso -->
-  <label><input type="radio" name="dest_economie" value="Redistribution à la vie associative" onchange="updateSavings()"> Vous souhaitez redistribuer l’argent dans la vie associative :</label><br>
-  <textarea name="dest_economie_vie_asso" rows="3" cols="50" placeholder="Précisez où vous aimeriez que cet argent soit redistribué..."></textarea><br><br>
+  <label><input type="radio" name="dest_economie_2" value="Redistribution à la vie associative" onchange="updateSavings()"> Vous souhaitez redistribuer l’argent dans la vie associative :</label><br>
+  <textarea name="dest_economie_vie_asso" rows="3" cols="50" placeholder="Précisez où vous aimeriez que cet argent soit redistribué..." onchange="updateSavings()"></textarea><br><br>
 
   <!-- 4. Utilité sociale / caritative / écologique -->
-  <label><input type="radio" name="dest_economie" value="Utilité sociale/caritative/écologique" onchange="updateSavings()"> Vous souhaitez utiliser cet argent pour des projets avec une utilité sociale et/ou caritative et/ou écologique forte :</label><br>
-  <textarea name="dest_economie_utile" rows="3" cols="50" placeholder="Précisez éventuellement vos idées..."></textarea><br><br>
+  <label><input type="radio" name="dest_economie_2" value="Utilité sociale/caritative/écologique" onchange="updateSavings()"> Vous souhaitez utiliser cet argent pour des projets avec une utilité sociale et/ou caritative et/ou écologique forte :</label><br>
+  <textarea name="dest_economie_utile" rows="3" cols="50" placeholder="Précisez éventuellement vos idées..." onchange="updateSavings()"></textarea><br><br>
 
   <!-- 5. Autre -->
-  <label><input type="radio" name="dest_economie" value="Autre" onchange="updateSavings()"> Autre :</label><br>
-  <textarea name="dest_economie_autre" rows="3" cols="50" placeholder="Votre proposition..."></textarea><br><br>
+  <label><input type="radio" name="dest_economie_2" value="Autre" onchange="updateSavings()"> Autre :</label><br>
+  <textarea name="dest_economie_autre" rows="3" cols="50" placeholder="Votre proposition..." onchange="updateSavings()"></textarea><br><br>
 
   <!-- 6. Pas d’économie -->
-  <label><input type="radio" name="dest_economie" value="Pas d’économie"d onchange="updateSavings()"> Pas d’économie</label><br><br>
+  <label><input type="radio" name="dest_economie_2" value="Pas d’économie" onchange="updateSavings()"> Pas d’économie 2</label><br><br>
 
   <!-- 7. Remarques diverses -->
   <label style="color: blue">Remarques diverses :</label><br>
@@ -565,6 +571,26 @@
     total += -10000; // Enlever 10000€ au total
   }
 
+  // pour les evenements des campagnes :
+  const checkboxes_2 = document.querySelectorAll('input[name="campagne[]"]:checked');
+  const selectedValues_2 = Array.from(checkboxes_2).map(cb => cb.value);
+  if (selectedValues_2.includes("internes")) {
+    total += 4000; // Ajouter 4000€ au total
+  }
+  if (selectedValues_2.includes("externes")) {
+    total += 10000; // Ajouter 10000€ au total
+  }
+  if (selectedValues_2.includes("activité 1")) {
+    total += 1000; // Ajouter 1000€ au total
+  }
+  if (selectedValues_2.includes("activité 2")) {
+    total += 1000; // Ajouter 1000€ au total
+  }
+  if (selectedValues_2.includes("Apéro")) {
+    total += 0; // Ajouter 0€ au total
+  }
+  // Pour le Grand Gala
+
   // Parcours des autres champs pour additionner les économies
   for (let [key, value] of data.entries()) {
     // Ignorer les champs non liés à une économie
@@ -621,11 +647,12 @@ document.getElementById("surveyForm").addEventListener("submit", async function(
   { name: "gg_diner_soiree", value: data.get("gg_diner_soiree") },
   { name: "gg_cocktail_soiree", value: data.get("gg_cocktail_soiree") },
   { name: "gg_remarque", value: data.get("gg_remarque") },
-  { name: "dest_economie", value: data.get("dest_economie") },
-  { name: "dest_economie_partenaires", value: data.get("dest_economie_partenaires") },
-  { name: "dest_economie_vie_asso", value: data.get("dest_economie_vie_asso") },
-  { name: "dest_economie_utile", value: data.get("dest_economie_utile") },
-  { name: "dest_economie_autre", value: data.get("dest_economie_autre") },
+  { name: "dest_economie_1", value: data.get("dest_economie_1") },
+  { name: "dest_economie_2", value: data.get("dest_economie_2") },
+  { name: "dest_economie_partenaires", value: data.getAll("dest_economie_partenaires") },
+  { name: "dest_economie_vie_asso", value: data.getAll("dest_economie_vie_asso") },
+  { name: "dest_economie_utile", value: data.getAll("dest_economie_utile") },
+  { name: "dest_economie_autre", value: data.getAll("dest_economie_autre") },
   { name: "dest_economie_remarques", value: data.get("dest_economie_remarques") },
   { name: "intersection_informative", value: data.get("intersection_informative") },
   { name: "intersection_proposition", value: data.get("intersection_proposition") },
