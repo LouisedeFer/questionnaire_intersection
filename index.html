@@ -69,7 +69,7 @@
 </head>
 <body>
 
-  <h1 style="color : lightcoral">Sondage Intersection</h1>
+  <h1 >Sondage Intersection</h1>
 
   <h2>Introduction</h2>
   <p><h3> <u>À quoi sert ce sondage</u></h3>
@@ -269,20 +269,20 @@
 
 <!-- 2. Combien d’internes souhaitez-vous ? -->
 <label style="color : blue">Combien d’internes souhaitez-vous (5 prévues cette année) ?</label>
-<label><input type="radio" name="nb_internes" value="3" required onchange="updateSavings()"> 3</label><br>
-<label><input type="radio" name="nb_internes" value="4" required onchange="updateSavings()"> 4</label><br>
-<label><input type="radio" name="nb_internes" value="5" required onchange="updateSavings()"> 5</label><br>
-<label><input type="radio" name="nb_internes" value="6" required onchange="updateSavings()"> 6</label><br>
-<label><input type="radio" name="nb_internes" value="7" required onchange="updateSavings()"> 7</label><br>
+<label><input type="radio" name="nb_internes" value="trois" required onchange="updateSavings()"> 3</label><br>
+<label><input type="radio" name="nb_internes" value="quatre" required onchange="updateSavings()"> 4</label><br>
+<label><input type="radio" name="nb_internes" value="cinq" required onchange="updateSavings()"> 5</label><br>
+<label><input type="radio" name="nb_internes" value="six" required onchange="updateSavings()"> 6</label><br>
+<label><input type="radio" name="nb_internes" value="sept" required onchange="updateSavings()"> 7</label><br>
 <label><input type="radio" name="nb_internes" value="Neutre" required onchange="updateSavings()"> Neutre</label>
 
 <!-- 3. Combien d’externes souhaitez-vous ? -->
 <label style="color : blue">Combien d’externes souhaitez-vous (5 prévues cette année) ?</label>
-<label><input type="radio" name="nb_externes" value="3" required onchange="updateSavings()"> 3</label><br>
-<label><input type="radio" name="nb_externes" value="4" required onchange="updateSavings()"> 4</label><br>
-<label><input type="radio" name="nb_externes" value="5" required onchange="updateSavings()"> 5</label><br>
-<label><input type="radio" name="nb_externes" value="6" required onchange="updateSavings()"> 6</label><br>
-<label><input type="radio" name="nb_externes" value="7" required onchange="updateSavings()"> 7</label><br>
+<label><input type="radio" name="nb_externes" value="trois" required onchange="updateSavings()"> 3</label><br>
+<label><input type="radio" name="nb_externes" value="quatre" required onchange="updateSavings()"> 4</label><br>
+<label><input type="radio" name="nb_externes" value="cinq" required onchange="updateSavings()"> 5</label><br>
+<label><input type="radio" name="nb_externes" value="six" required onchange="updateSavings()"> 6</label><br>
+<label><input type="radio" name="nb_externes" value="sept" required onchange="updateSavings()"> 7</label><br>
 <label><input type="radio" name="nb_externes" value="Neutre" required onchange="updateSavings()">  Neutre</label>
 
 <!-- 4. Êtes-vous prêt à avoir moins d’externes si elles sont de meilleure qualité ? -->
@@ -539,29 +539,29 @@
   const nb_internes=data.get("nb_internes");
   const nb_externes=data.get("nb_externes");
   // Pour le nombre d'internes
-  if (nb_internes === "3") {
-    total += 4000; // Ajoute 4000€ au total
+  if (nb_internes === "trois") {
+    total += 3000; // Ajoute 3000€ au total
   }
-  if (nb_internes === "4") {
-    total += 2000; // Ajoute 2000€ au total
+  if (nb_internes === "quatre") {
+    total += 1500; // Ajoute 1500€ au total
   }
-  if (nb_internes === "6") {
-    total += -2000; // Enlever 2000€ au total
+  if (nb_internes === "six") {
+    total += -1500; // Enlever 1500€ au total
   }
-  if (nb_internes === "7") {
-    total += -4000; // Enlever 4000€ au total
+  if (nb_internes === "sept") {
+    total += -3000; // Enlever 3000€ au total
   }
   // Pour le nombre d'externes
-  if (nb_externes === "3") {
+  if (nb_externes === "trois") {
     total += 10000; // Ajoute 10000€ au total
   }
-  if (nb_externes === "4") {
+  if (nb_externes === "quatre") {
     total += 5000; // Ajoute 5000€ au total
   }
-  if (nb_externes === "6") {
+  if (nb_externes === "six") {
     total += -5000; // Enlever 5000€ au total
   }
-  if (nb_externes === "7") {
+  if (nb_externes === "sept") {
     total += -10000; // Enlever 10000€ au total
   }
 
