@@ -10,10 +10,11 @@
     body {
       font-family: 'Inter', sans-serif;
       background: #f4f7fa;
-      padding: 40px;
-      max-width: 700px;
+      padding: 20px;
+      max-width: 100%; /* Empêche le débordement horizontal */
       margin: auto;
       color: #333;
+      overflow-x: hidden; /* Supprime tout débordement horizontal */
     }
 
     h1 {
@@ -27,12 +28,15 @@
       padding: 20px;
       margin-bottom: 20px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 100%; /* S'assure que les questions ne débordent pas */
+      box-sizing: border-box; /* Inclut le padding et les bordures dans la largeur */
     }
 
     label {
       font-weight: 600;
       display: block;
       margin-bottom: 10px;
+      word-wrap: break-word; /* Permet de couper les mots longs pour éviter le débordement */
     }
 
     .option {
@@ -85,6 +89,37 @@
       padding: 0.5rem;
       font-size: 1rem;
       box-sizing: border-box;
+    }
+
+    textarea, input[type="text"], select {
+      width: 100%; /* S'assure que les champs prennent toute la largeur disponible */
+      max-width: 100%; /* Empêche les champs de dépasser la largeur du conteneur */
+      padding: 0.5rem;
+      font-size: 1rem;
+      box-sizing: border-box; /* Inclut le padding et les bordures dans la largeur */
+    }
+
+    label input[type="radio"], label input[type="checkbox"] {
+      margin-right: 10px; /* Ajoute un espace entre le bouton et le texte */
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 10px; /* Réduit le padding pour les petits écrans */
+      }
+
+      .question {
+        padding: 15px; /* Réduit légèrement le padding des questions */
+      }
+
+      label {
+        font-size: 0.9rem; /* Réduit légèrement la taille du texte */
+      }
+
+      button {
+        font-size: 0.9rem; /* Réduit la taille du bouton */
+        padding: 10px; /* Réduit le padding du bouton */
+      }
     }
 
   </style>
@@ -164,6 +199,7 @@
 
     <div class="question">
       <h3>1. Le PCV</h3>
+      <p>Le PCV se réunit deux fois par an afin de répartir l’argent principalement reçu au Trium aux différentes associations. Il est composé des président.e.s BDE et Trium ainsi que des trésorier.e.s de ces deux associations. À cela s’ajoutent deux membres extraordinaires tirés au sort parmi des volontaires, sous réserve qu’ils n’aient pas déjà été sélectionnés à un précédent PCV, qu’ils soient aux Mines depuis plus de 5 mois, qu’ils ne soient actuellement ni membres du BDE ni membre du bureau Trium ni président.e/trésorier.e d’une association demandant plus de 500€ au PCV.</p>
       <label for="pcv" style="color: blue;"> Êtes-vous satisfait du système du PCV ? </label>
       <select id="pcv" name="pcv" required>
         <option value="" disabled selected hidden>Choisissez une option</option>
@@ -199,12 +235,14 @@
 <!-- Question 3.1 - Nombre d'événements de Total Énergies -->
 <div class="question">
   <h3>3. Total Énergies - Nombre d'événements</h3>
+  <p>L’entreprise Total Energies finance le BDS à hauteur de 3 événements [un amphi, une table ronde et une visite de site], l’équivalent d’environ 12 600€. 
+  </p>
   <label for="total_energies_evenements" style="color: blue;">
     Combien d’événements de Total Énergies souhaitez-vous pour le BDS ?
   </label>
   <select id="total_energies_evenements" name="total_energies_evenements" required >
     <option value="" disabled selected hidden>Choisissez une option</option>
-    <option value="2 événements ou moins " onchange="updateSavings()">2 événements ou moins</option>
+    <option value="2 événements ou moins " onchange="updateSavings()">2 événements ou moins, correspond à un -4200€ dans le compteur </option>
     <option value="3 événements " onchange="updateSavings()">3 événements (nombre actuel)</option>
     <option value="Neutre" onchange="updateSavings()">Neutre</option>
   </select>
@@ -216,6 +254,7 @@
 <!-- Question 3.2 - Participation au Grand Gala -->
 
   <h3>3. Total Énergies - Grand Gala</h3>
+  <p>L’entreprise Total Energies finance le Grand Gala à hauteur d’une table (5 000€ pour une table à l’Intercontinental). </p>
   <label for="total_energies_gala" style="color: blue;">
     Concernant la participation de Total Energies au Grand Gala, souhaitez-vous la maintenir ?
   </label>
@@ -238,7 +277,7 @@
   <p>Le BDE a déjà prévu un certain nombre de changements pour l’année prochaine : 
     <ul>
       <li>Le gala de parrainage (45 000€ environ pour le mandat P23) deviendra un bal de parrainage avec un cocktail pourvu de mignardises puis une soirée, le coût visé étant d’environ 30 000€. Pour le mandat P23, le gala de parrainage a représenté une large part des charges de l’intégration (voir slide 7). <i>Cet événement n'apparaît pas dans la question ci-dessous puisqu’il fait l’objet d’une refonte intégrale de la part du BDE.</i></li>
-      <li>La balade en péniche (3 800€) n’est pas un événement que le BDE compte reconduire l’année prochaine. <i>Elle est présente dans la question pour que vous puissiez donner votre avis.</i></li>
+      <li>La balade en péniche (3 800€) n’est pas un événement que le BDE compte reconduire l’année prochaine. <i>Elle est présente dans la question pour que vous puissiez donner votre avis mais n'est pas prise en compte dans le compteur.</i></li>
     </ul>
   </p>
 
@@ -248,7 +287,7 @@
   <legend style="color: blue;"><b>Choisissez si vous le souhaitez des événements que vous enlèveriez à l’intégration ? </b></fieldset></legend>
 
   <label>
-    <input type="checkbox" name="integration[]" value="La péniche (balade)" onchange="updateSavings()"> La péniche (balade) (~3800€)
+    <input type="checkbox" name="integration[]" value="La péniche (balade)" onchange="updateSavings()"> La péniche (balade) (~3800€ donné à titre indicatif, non compté dans le compteur)
   </label><br>
 
   <label>
@@ -282,6 +321,10 @@
 <div class = "question">
   <!-- Question 5 - Les soirées -->
 <h3>Question 5 - Les soirées</h3>
+<p>Le mandat P23 a organisé 5 internes et 3 externes en ne comptant pas celles de l’intégration des P24.
+  5 internes et 5 externes sont prévues cette année, en comptant l’interne et l’externe d’intégration. 
+  Une interne coûte environ 1500€, une externe 5000€.
+  </p>
 <p>
 <!-- 1. Le nombre de soirées prévues vous convient-il ? -->
 <label style="color : blue">Le nombre de soirées prévues vous convient-il ?</label><br>
@@ -323,6 +366,8 @@
 </p>
 <p>
 <!-- 5. Êtes-vous satisfait du système d’Open Bar ? -->
+ <p>Dans le système actuel, chaque personne paie l’entrée de la soirée, et c’est le système de l’Open Bar qui s’applique (autant d’alcool qu’il en faut). L’alcool représente environ 1000 euros sur une interne, interne dont le coût total est variable mais est d’environ 1500 euros.
+</p>
 <label style="color : blue">
   Êtes-vous satisfait de ce système d’Open Bar ?
 </label><br>
@@ -334,7 +379,7 @@
 </p>
 <p>
 <!-- 6. Remarques diverses -->
-<p>Remarques diverses :</p>
+<p style="color: blue;"><b>Remarques diverses :</b></p>
 <textarea name="remarques_soirees" style="width: 100%; border-radius: 6px; padding: 8px; border: 1px solid #ccc;" onchange="updateSavings()"></textarea>
 
 </p>
@@ -343,7 +388,7 @@
 
 <div class="question">
   <h3>6. Le voyage BDE</h3>
-<p>La participation du BDE dans ce voyage a correspondu à 11 000€ cette année pour le voyage à Prague, en plus d’une participation de 5 500€ des mineur.euse.s, pour un total de 16 500€.  Cette année, le BDE souhaite faire payer chaque personne 100€ moins cher que le prix réel de son voyage, et prévoit 50 places, avec un budget prévoyant des économies globales [à confirmer]. </p>
+<p>La participation du BDE dans ce voyage a correspondu à 11 000€ cette année pour le voyage à Prague, en plus d’une participation de 5 500€ des mineur.euse.s, pour un total de 16 500€.  Cette année, le BDE souhaite faire payer chaque personne 100€ moins cher que le prix réel de son voyage, et prévoit 50 places, avec un budget. </p>
   <label for= "voyage_remarque" style="color: blue;"> Remarques diverses :</label>
   <textarea id="voyage_remarque" name="voyage_remarque" onchange="updateSavings()" style="width: 100%; border-radius: 6px; padding: 8px; border: 1px solid #ccc;"></textarea>
 </div>
@@ -380,7 +425,7 @@
   </label><br>
 
   <label>
-    <input type="checkbox" name="campagne[]" value="Apéro" onchange="updateSavings()"> Apéritif commun aux deux listes (coût ?)
+    <input type="checkbox" name="campagne[]" value="Apéro" onchange="updateSavings()"> Apéritif commun aux deux listes (~150€ par liste)
 
   </label><br>
 
@@ -390,6 +435,7 @@
   <label>
     <input type="checkbox" name="campagne[]" value="Neutre" onchange="updateSavings()"> Neutre
   </label>
+
 
 </fieldset>
     
@@ -446,16 +492,16 @@
 
   <p>Si vous avez décidé de réaliser des économies, vous avez maintenant le choix sur la manière de les réinvestir. Vous pouvez choisir une ou deux façons de répartir l'argent, et préciser votre pensée si vous le souhaitez</p>
 
-  <p style="color: purple;"> Choisissez votre option 1</p><br>
+  <p style="color: purple;"> <b>Choisissez votre option 1</b></p><br>
   <!-- 1. Réduire le poids d’un ou plusieurs partenaires -->
-  <label><input type="radio" name="dest_economie_1" value="Réduire le poids d’un ou plusieurs partenaires" onchange="updateSavings()"> Vous souhaitez réduire le poids d’un ou plusieurs partenaires (<a href="https://drive.google.com/file/d/1ElUTJaUepWxSqSUg8Ag-ubOPF8h-CKkT/view?usp=sharing">Liste partenariats</a>) :</label><br>
+  <label><input type="radio" name="dest_economie_1" value="Réduire le poids d’un ou plusieurs partenaires" required onchange="updateSavings()"> Vous souhaitez réduire le poids d’un ou plusieurs partenaires (<a href="https://drive.google.com/file/d/1ElUTJaUepWxSqSUg8Ag-ubOPF8h-CKkT/view?usp=sharing">Liste partenariats</a>) :</label><br>
   <textarea name="dest_economie_partenaires" rows="3" cols="50" placeholder="Précisez le ou les partenariats..." onchange="updateSavings()"></textarea><br><br>
 
   <!-- 2. Faire de la sobriété -->
-  <label><input type="radio" name="dest_economie_1" value="Faire de la sobriété" onchange="updateSavings()"> Vous souhaitez faire de la sobriété (en tant que fin et non simplement moyen)</label><br><br>
+  <label><input type="radio" name="dest_economie_1" value="Faire de la sobriété" required onchange="updateSavings()"> Vous souhaitez faire de la sobriété (en tant que fin et non simplement moyen)</label><br><br>
 
   <!-- 3. Redistribuer à la vie asso -->
-  <label><input type="radio" name="dest_economie_1" value="Redistribution à la vie associative" onchange="updateSavings()"> Vous souhaitez redistribuer l’argent dans la vie associative :</label><br>
+  <label><input type="radio" name="dest_economie_1" value="Redistribution à la vie associative" required onchange="updateSavings()"> Vous souhaitez redistribuer l’argent dans la vie associative :</label><br>
   <textarea name="dest_economie_vie_asso" rows="3" cols="50" placeholder="Précisez où vous aimeriez que cet argent soit redistribué..." onchange="updateSavings()"></textarea><br><br>
 
   <!-- 4. Utilité sociale / caritative / écologique -->
@@ -463,38 +509,37 @@
   <textarea name="dest_economie_utile" rows="3" cols="50" placeholder="Précisez éventuellement vos idées..." onchange="updateSavings()"></textarea><br><br>
 
   <!-- 5. Autre -->
-  <label><input type="radio" name="dest_economie_1" value="Autre" onchange="updateSavings()"> Autre :</label><br>
+  <label><input type="radio" name="dest_economie_1" value="Autre" required onchange="updateSavings()"> Autre :</label><br>
   <textarea name="dest_economie_autre" rows="3" cols="50" placeholder="Votre proposition..." onchange="updateSavings()"></textarea><br><br>
 
   <!-- 6. Pas d’économie -->
-  <label><input type="radio" name="dest_economie_1" value="Pas d’économie" onchange="updateSavings()"> Pas d’économie</label><br><br>
+  <label><input type="radio" name="dest_economie_1" value="Pas d’économie" required onchange="updateSavings()"> Pas d’économie</label><br><br>
 
-  <p style="color: purple;"> Choisissez votre option 2</p>
+  <p style="color: purple;"> <b>Choisissez votre option 2</b></p>
   <!-- 1. Réduire le poids d’un ou plusieurs partenaires -->
-  <label><input type="radio" name="dest_economie_2" value="Oui"  onchange="updateSavings()"> Vous souhaitez réduire le poids d’un ou plusieurs partenaires (<a href="https://drive.google.com/file/d/1ElUTJaUepWxSqSUg8Ag-ubOPF8h-CKkT/view?usp=sharing">Liste partenariats</a>) :</label><br>
+  <label><input type="radio" name="dest_economie_2" value="Oui" required onchange="updateSavings()"> Vous souhaitez réduire le poids d’un ou plusieurs partenaires (<a href="https://drive.google.com/file/d/1ElUTJaUepWxSqSUg8Ag-ubOPF8h-CKkT/view?usp=sharing">Liste partenariats</a>) :</label><br>
   <textarea name="dest_economie_partenaires" rows="3" cols="50" placeholder="Précisez le ou les partenariats..." onchange="updateSavings()"></textarea><br><br>
 
   <!-- 2. Faire de la sobriété -->
-  <label><input type="radio" name="dest_economie_2" value="Faire de la sobriété" onchange="updateSavings()"> Vous souhaitez faire de la sobriété (en tant que fin et non simplement moyen)</label><br><br>
+  <label><input type="radio" name="dest_economie_2" value="Faire de la sobriété" required onchange="updateSavings()"> Vous souhaitez faire de la sobriété (en tant que fin et non simplement moyen)</label><br><br>
 
   <!-- 3. Redistribuer à la vie asso -->
-  <label><input type="radio" name="dest_economie_2" value="Redistribution à la vie associative" onchange="updateSavings()"> Vous souhaitez redistribuer l’argent dans la vie associative :</label><br>
+  <label><input type="radio" name="dest_economie_2" value="Redistribution à la vie associative" required onchange="updateSavings()"> Vous souhaitez redistribuer l’argent dans la vie associative :</label><br>
   <textarea name="dest_economie_vie_asso" rows="3" cols="50" placeholder="Précisez où vous aimeriez que cet argent soit redistribué..." onchange="updateSavings()"></textarea><br><br>
 
   <!-- 4. Utilité sociale / caritative / écologique -->
-  <label><input type="radio" name="dest_economie_2" value="Utilité sociale/caritative/écologique" onchange="updateSavings()"> Vous souhaitez utiliser cet argent pour des projets avec une utilité sociale et/ou caritative et/ou écologique forte :</label><br>
+  <label><input type="radio" name="dest_economie_2" value="Utilité sociale/caritative/écologique" required onchange="updateSavings()"> Vous souhaitez utiliser cet argent pour des projets avec une utilité sociale et/ou caritative et/ou écologique forte :</label><br>
   <textarea name="dest_economie_utile" rows="3" cols="50" placeholder="Précisez éventuellement vos idées..." onchange="updateSavings()"></textarea><br><br>
 
   <!-- 5. Autre -->
-  <label><input type="radio" name="dest_economie_2" value="Autre" onchange="updateSavings()"> Autre :</label><br>
+  <label><input type="radio" name="dest_economie_2" value="Autre" required onchange="updateSavings()"> Autre :</label><br>
   <textarea name="dest_economie_autre" rows="3" cols="50" placeholder="Votre proposition..." onchange="updateSavings()"></textarea><br><br>
 
   <!-- 6. Pas d’économie -->
-  <label><input type="radio" name="dest_economie_2" value="Pas d’économie" onchange="updateSavings()"> Pas d’économie 2</label><br><br>
+  <label><input type="radio" name="dest_economie_2" value="Pas d’économie" required onchange="updateSavings()"> Pas d’économie</label><br><br>
 
-  <!-- 7. Remarques diverses -->
-  <label style="color: blue">Remarques diverses :</label><br>
-  <textarea name="dest_economie_remarques" rows="4" cols="50" onchange="updateSavings()"></textarea>
+  <label style="color: blue;">Remarques diverses :</label><br>
+ <textarea name="dest_economie_remarques" rows="4" cols="50" onchange="updateSavings()" ></textarea>
 </div>
 
 
@@ -533,7 +578,7 @@
 
 
 
-    <button type="submit">Envoyer mes réponses</button>
+    <button type="submit">Cliquer 1 fois pour envoyer </button>
   </form>
 
   <script>
@@ -555,7 +600,7 @@
   const selectedValues = Array.from(checkboxes).map(cb => cb.value);
 
   if (selectedValues.includes("La péniche (balade)")) { 
-    total += 3800; // Ajouter 3800€ au total
+    total += 0; // Ajouter 0 au total
   }
   if (selectedValues.includes("Petit pont")) {
     total += 4300; // Ajouter 4300€ au total
@@ -566,6 +611,7 @@
   if (selectedValues.includes("Externe d'inté")) {
     total += 5000; // Ajouter 5000€ au total
   }
+
 
   const nb_internes=data.get("nb_internes");
   const nb_externes=data.get("nb_externes");
@@ -612,7 +658,7 @@
     total += 1000; // Ajouter 1000€ au total
   }
   if (selectedValues_2.includes("Apéro")) {
-    total += 0; // Ajouter 0€ au total
+    total += 300; // Ajouter 0€ au total
   }
   // Pour le Grand Gala
 
