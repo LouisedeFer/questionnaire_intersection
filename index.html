@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -275,7 +274,7 @@
     
 
   <label for="integration_remarque" style="color: blue;">Remarques diverses, en particulier sur le gala de parrainage pour les années à venir : 
-    :</label>
+    </label>
   <textarea id="integration_remarque" name="integration_remarque" onchange="updateSavings()" style="width: 100%; border-radius: 6px; padding: 8px; border: 1px solid #ccc;"></textarea>
 </div>
 
@@ -438,6 +437,10 @@
   <textarea name="gg_remarque" style="width: 100%; border-radius: 6px; padding: 8px; border: 1px solid #ccc;"onchange="updateSavings()"></textarea>
 </div>
 
+<div class="total">
+  Total économisé : <span id="total">0€</span> 
+</div>
+
 <div class="question">
   <h3>Question 9 - La destination de l’argent économisé</h3>
 
@@ -494,6 +497,8 @@
   <textarea name="dest_economie_remarques" rows="4" cols="50" onchange="updateSavings()"></textarea>
 </div>
 
+
+
 <div class="question">
   <h3>Question 10 - Le projet Intersection</h3>
 
@@ -527,9 +532,6 @@
 </div>
 
 
-    <div class="total">
-      Total économisé : <span id="total">0</span> 
-    </div>
 
     <button type="submit">Envoyer mes réponses</button>
   </form>
@@ -623,7 +625,7 @@
   }
 
   // Mettre à jour le total économisé affiché dans le formulaire
-  document.getElementById("total").textContent = total;
+  document.getElementById("total").textContent = total + " €";
 }
 
 
