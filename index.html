@@ -154,7 +154,7 @@
       
       </p>
       <p>Ce sondage est donc <b>quasi-anonyme</b> au sens suivant :
-      Chaque participant.e indique son nom, prénom et sa promotion en début de sondage.
+      chaque participant.e indique son nom, prénom et sa promotion en début de sondage.
       Un garant, Ewen Marzin (24Marzin) dont l’intégrité est unanimement reconnue par les associations concernées par le sondage et par l’équipe du projet Intersection, est <b>le seul à avoir accès aux résultats nominatifs du sondage.</b> 
       Cela lui permet après la date de clôture du sondage de vérifier qu’il n’y a pas eu de fraude et dans la mesure du raisonnable que chacun a voté (parmi les P24). 
       </p>
@@ -283,36 +283,35 @@
 
 <fieldset>
 
-  <legend style="color: blue;"><b>Choisissez si vous le souhaitez des événements que vous enlèveriez à l’intégration ? </b></fieldset></legend>
+  <p style="color: blue;"><b>Choisissez si vous le souhaitez des événements que vous enlèveriez à l’intégration ? </b></p>
 
   <label>
-    <input type="checkbox" name="integration[]" value="La péniche (balade)" onchange="updateSavings()"> La péniche (balade) (~3800€ donné à titre indicatif, non compté dans le compteur)
+    <input type="checkbox" name="integration[]" value="La péniche (balade)" required onchange="updateSavings()"> La péniche (balade) (~3800€ donné à titre indicatif, non compté dans le compteur)
   </label><br>
 
   <label>
-    <input type="checkbox" name="integration[]" value="Petit pont" onchange="updateSavings()"> Petit pont (~4300€)
+    <input type="checkbox" name="integration[]" value="Petit pont" required onchange="updateSavings()"> Petit pont (~4300€)
   </label><br>
 
   <label>
-    <input type="checkbox" name="integration[]" value="Interne d'inté" onchange="updateSavings()"> Interne d'inté (~2000€)
+    <input type="checkbox" name="integration[]" value="Interne d'inté" required onchange="updateSavings()"> Interne d'inté (~2000€)
   </label><br>
 
   <label>
-    <input type="checkbox" name="integration[]" value="Externe d'inté" onchange="updateSavings()"> Externe d'inté (~5000€)
+    <input type="checkbox" name="integration[]" value="Externe d'inté" required onchange="updateSavings()"> Externe d'inté (~5000€)
   </label><br>
 
   <label>
-    <input type="checkbox" name="integration[]" value="Aucun" onchange="updateSavings()"> Aucun
+    <input type="checkbox" name="integration[]" value="Aucun" required onchange="updateSavings()"> Aucun
   </label><br>
 
   <label>
-    <input type="checkbox" name="integration[]" value="Neutre" onchange="updateSavings()"> Neutre
+    <input type="checkbox" name="integration[]" value="Neutre" required onchange="updateSavings()"> Neutre
   </label>
 </fieldset>
     
 
-  <label for="integration_remarque" style="color: blue;">Remarques diverses, en particulier sur le gala de parrainage pour les années à venir : 
-    </label>
+  <label for="integration_remarque" style="color: blue;"><b>Remarques diverses, en particulier sur le gala de parrainage pour les années à venir : </b></label>
   <textarea id="integration_remarque" name="integration_remarque" onchange="updateSavings()" style="width: 100%; border-radius: 6px; padding: 8px; border: 1px solid #ccc;"></textarea>
 </div>
 
@@ -400,8 +399,7 @@
 
 <fieldset>
 
-  <legend style="color: red;"> <b>Sélectionnez, pour chaque événement des campagnes BDE, si vous souhaitez qu’il soit supprimé : </b></legend><br>
-
+  <p style="color: red;"> <b>Sélectionnez chaque événement des campagnes BDE qu'il serait possible de supprimer selon vous : </b></p>
   <label>
     <input type="checkbox" name="campagne[]" value="internes" onchange="updateSavings()"> interne de chaque liste (~ 2000€ par liste)
 
@@ -429,7 +427,7 @@
 
 <label>
 
-<input type="checkbox" name = "campagne[]" value = 0 onchange="updateSavings()">Aucun</label><br>
+<input type="checkbox" name = "campagne[]" value ="Aucun" onchange="updateSavings()">Aucun</label><br>
   <label>
     <input type="checkbox" name="campagne[]" value="Neutre" onchange="updateSavings()"> Neutre
   </label>
@@ -492,7 +490,7 @@
 
   <p style="color: purple;"> <b>Choisissez votre option 1</b></p><br>
   <!-- 1. Réduire le poids d’un ou plusieurs partenaires -->
-  <label><input type="radio" name="dest_economie_1" value="Réduire le poids d’un ou plusieurs partenaires" required onchange="updateSavings()"> Vous souhaitez réduire le poids d’un ou plusieurs partenaires (<a href="https://drive.google.com/file/d/1ElUTJaUepWxSqSUg8Ag-ubOPF8h-CKkT/view?usp=sharing">Liste partenariats</a>) :</label><br>
+  <label><input type="radio" name="dest_economie_1" value="Réduire le poids d’un ou plusieurs partenaires" required onchange="updateSavings()"> Vous souhaitez réduire le poids d’un ou plusieurs partenaires <a href="https://drive.google.com/file/d/1ElUTJaUepWxSqSUg8Ag-ubOPF8h-CKkT/view?usp=sharing">Liste partenariats</a> :</label><br>
   <textarea name="dest_economie_partenaires" rows="3" cols="50" placeholder="Précisez le ou les partenariats..." onchange="updateSavings()"></textarea><br><br>
 
   <!-- 2. Faire de la sobriété -->
@@ -515,7 +513,7 @@
 
   <p style="color: purple;"> <b>Choisissez votre option 2</b></p>
   <!-- 1. Réduire le poids d’un ou plusieurs partenaires -->
-  <label><input type="radio" name="dest_economie_2" value="Oui" required onchange="updateSavings()"> Vous souhaitez réduire le poids d’un ou plusieurs partenaires (<a href="https://drive.google.com/file/d/1ElUTJaUepWxSqSUg8Ag-ubOPF8h-CKkT/view?usp=sharing">Liste partenariats</a>) :</label><br>
+  <label><input type="radio" name="dest_economie_2" value="Oui" required onchange="updateSavings()"> Vous souhaitez réduire le poids d’un ou plusieurs partenaires <a href="https://drive.google.com/file/d/1ElUTJaUepWxSqSUg8Ag-ubOPF8h-CKkT/view?usp=sharing">Liste partenariats</a>:</label><br>
   <textarea name="dest_economie_partenaires" rows="3" cols="50" placeholder="Précisez le ou les partenariats..." onchange="updateSavings()"></textarea><br><br>
 
   <!-- 2. Faire de la sobriété -->
@@ -526,7 +524,7 @@
   <textarea name="dest_economie_vie_asso" rows="3" cols="50" placeholder="Précisez où vous aimeriez que cet argent soit redistribué..." onchange="updateSavings()"></textarea><br><br>
 
   <!-- 4. Utilité sociale / caritative / écologique -->
-  <label><input type="radio" name="dest_economie_2" value="Utilité sociale/caritative/écologique" required onchange="updateSavings()"> Vous souhaitez utiliser cet argent pour des projets avec une utilité sociale et/ou caritative et/ou écologique forte :</label><br>
+  <label><input type="radio" name="dest_economie_2" value="Utilité sociale/caritative/écologique" required onchange="updateSavings()"> Vous souhaitez utiliser cet argent pour des projets avec une utilité sociale et/ou caritative et/ou écologique forte :</label><br> 
   <textarea name="dest_economie_utile" rows="3" cols="50" placeholder="Précisez éventuellement vos idées..." onchange="updateSavings()"></textarea><br><br>
 
   <!-- 5. Autre -->
@@ -546,7 +544,7 @@
   <h3>Question 10 - Le projet Intersection</h3>
 
   <!-- Phase informative -->
-  <label style="color: red;"><b>Quel est votre ressenti vis-à-vis de l’utilité de la phase informative du projet Intersection (regroupement des chiffres, recherches sur certains partenariats et consultations des parties prenantes) ?</b></label><br>
+  <label style="color: red;"><b>Quel est votre ressenti au sujet de l’utilité de la phase informative du projet Intersection (regroupement des chiffres, recherches sur certains partenariats et consultations des parties prenantes) ?</b></label><br>
   <label><input type="radio" name="intersection_informative" value="Très utile" required onchange="updateSavings()"> Très utile</label><br>
   <label><input type="radio" name="intersection_informative" value="Utile" required onchange="updateSavings()"> Utile</label><br>
   <label><input type="radio" name="intersection_informative" value="Neutre" required onchange="updateSavings()"> Neutre</label><br>
@@ -554,7 +552,7 @@
   <label><input type="radio" name="intersection_informative" value="Inutile et contre-productif" required onchange="updateSavings()"> Inutile et contre productif</label><br><br>
 
   <!-- Phase de propositions -->
-  <label style="color: red;"><b>Quel est votre ressenti vis-à-vis de l’utilité de la phase de propositions du projet Intersection (réunions publiques pour les 1A et le sondage à la fin) ?</b></label><br>
+  <label style="color: red;"><b>Quel est votre ressenti au sujet de l’utilité de la phase de propositions du projet Intersection (réunions publiques pour les 1A et le sondage à la fin) ?</b></label><br>
   <label><input type="radio" name="intersection_proposition" value="Très utile" required onchange="updateSavings()"> Très utile</label><br>
   <label><input type="radio" name="intersection_proposition" value="Utile" required onchange="updateSavings()"> Utile</label><br>
   <label><input type="radio" name="intersection_proposition" value="Neutre" required onchange="updateSavings()"> Neutre</label><br>
