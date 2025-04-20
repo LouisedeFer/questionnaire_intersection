@@ -634,9 +634,9 @@ document.getElementById("surveyForm").addEventListener("submit", async function(
   { name: "total", value: document.getElementById("total").textContent }
 ];
 
-''
   try {
     console.log(payload); // Uncommented for debugging
+    console.log(JSON.stringify(payload))
     await fetch('https://script.google.com/macros/s/AKfycbya_1RQwCzKG2yts3JevxWj13JKrFq6QuycC1vL6Em00whsYUI6N1gUM2kVsTnsfj_HvA/exec', {
       method: 'POST',
       mode: 'no-cors',
