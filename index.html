@@ -7,127 +7,125 @@
   <title>Sondage Intersection</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    /* Alignement global */
     body {
       font-family: 'Inter', sans-serif;
       background: #f4f7fa;
       padding: 20px;
-      max-width: 100%; /* Empêche le débordement horizontal */
+      max-width: 100%;
       margin: auto;
       color: #333;
-      overflow-x: hidden; /* Supprime tout débordement horizontal */
+      overflow-x: hidden;
     }
-
-    h1 {
-      text-align: center;
-      color: #0e4d92;
-    }
-
-    .question {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      width: 100%; /* S'assure que les questions ne débordent pas */
-      box-sizing: border-box; /* Inclut le padding et les bordures dans la largeur */
-    }
-
-    label {
-      font-weight: 600;
-      display: block;
-      margin-bottom: 10px;
-      word-wrap: break-word; /* Permet de couper les mots longs pour éviter le débordement */
-    }
-
-    .option {
-      margin-bottom: 8px;
-    }
-
-    .total {
-      font-size: 1.3em;
-      margin-top: 30px;
-      text-align: center;
-      background: #e6f7e6;
-      padding: 15px;
-      border-radius: 8px;
-      color: #2e7d32;
-    }
-
-    button {
-      display: block;
-      width: 100%;
-      padding: 15px;
-      background: #0e4d92;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1em;
-      cursor: pointer;
-      transition: background 0.3s;
-      margin-top: 20px;
-    }
-
   
-    button:hover {
-      background: #093a6a;
+    .question {
+
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px; /* Ajoute un espace entre les divs */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+    margin: 0 auto;
+  
     }
-    form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
-}
-  @media (min-width: 600px) {
-  .row > * {
-    flex: 1 1 calc(50% - 1rem);
-  }
-}
-
-
-    input, select, textarea {
+  
+    label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      word-wrap: break-word;
+      flex-wrap: wrap;
+    }
+  
+    input[type="radio"], input[type="checkbox"] {
+      flex-shrink: 0;
+      margin: 0;
+    }
+  
+    textarea, input[type="text"], select {
       width: 100%;
+      max-width: 600px;
       padding: 0.5rem;
       font-size: 1rem;
       box-sizing: border-box;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      border-radius: 6px;
     }
-
-    textarea, input[type="text"], select {
-      width: 100%; /* S'assure que les champs prennent toute la largeur disponible */
-      max-width: 100%; /* Empêche les champs de dépasser la largeur du conteneur */
-      padding: 0.5rem;
-      font-size: 1rem;
-      box-sizing: border-box; /* Inclut le padding et les bordures dans la largeur */
-    }
-
+  
+    /* Boutons radio et cases à cocher */
     label input[type="radio"], label input[type="checkbox"] {
-      margin-right: 10px; /* Ajoute un espace entre le bouton et le texte */
+      margin-right: 10px;
     }
+    .total {
+    background: #0e4d92; /* Couleur de fond bleu */
+    color: white; /* Texte en blanc */
+    border-radius: 12px; /* Coins arrondis */
+    padding: 15px; /* Espacement interne */
+    text-align: center; /* Centrer le texte */
+    font-size: 1.2em; /* Taille de police légèrement plus grande */
+    font-weight: bold; /* Texte en gras */
+    margin: 20px auto; /* Espacement autour et centrage */
+    max-width: 600px; /* Largeur maximale */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Légère ombre */
+  }
+  
 
+       /* Bouton d'envoi */
+   button {
+     display: block;
+     width: 100%;
+     padding: 15px;
+     text-align: center; /* Centrer le texte */
+     background: #0e4d92;
+     color: white;
+     border: none;
+     border-radius: 12px;
+     font-size: 1.2em;
+     font-weight: bold; /* Texte en gras */
+     cursor: pointer;
+     transition: background 0.3s;
+     margin: 20px auto; /* Espacement autour et centrage */
+     max-width: 600px; /* Largeur maximale */
+     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Légère ombre */
+   }
+
+    button:hover {
+     background: #093a6a;
+   }
+
+    /* Ajustements pour les petits écrans */
     @media (max-width: 600px) {
-      body {
-        padding: 10px; /* Réduit le padding pour les petits écrans */
-      }
-
       .question {
-        padding: 15px; /* Réduit légèrement le padding des questions */
+        padding: 15px;
       }
-
+  
       label {
-        font-size: 0.9rem; /* Réduit légèrement la taille du texte */
+        font-size: 0.9rem;
+        flex-wrap: wrap;
       }
-
+  
+      textarea, input[type="text"], select {
+        max-width: 100%;
+      }
+  
       button {
-        font-size: 0.9rem; /* Réduit la taille du bouton */
-        padding: 10px; /* Réduit le padding du bouton */
+        font-size: 0.9rem;
+        padding: 10px;
       }
     }
-
   </style>
 </head>
 <body>
 
-  <h1 >Sondage Intersection</h1>
+  
 
+  <div class ="question">
+    <h1 >Sondage Intersection</h1>
   <h2>Introduction</h2>
   <p><h3> <u>À quoi sert ce sondage</u></h3>
     Ce sondage est une <b>aide à la réflexion et à la décision </b>pour les associations et la promotion. Il a pour objectif de mettre en lumière les enjeux de la vie associative et de ses financements, et d'obtenir une meilleure vision de ce que souhaitent les dernières promotions des mineur.euse.s dans ces domaines. 
@@ -175,13 +173,14 @@
       <p><h3><u>Le compteur</u></h3>
         Ce sondage cherche à mieux situer les souhaits des mineur.euse.s  quant à l’utilisation de l’argent dans la vie associative. Dans cet objectif, un compteur a été mis en place afin que chaque personne puisse chiffrer les potentielles économies réalisées et mieux se rendre compte des ordres de grandeur en jeu. Ainsi, à chaque fois qu’une économie chiffrée est cochée, <b>un compteur s’actualise</b> et affiche à la fin <b>le montant total économisé</b>. Vous pouvez alors <b>répartir ce montant entre plusieurs options</b> à la fin du sondage : diminuer l’importance d’un ou plusieurs partenariats choisis parmi une liste, investir cet argent différemment dans la vie associative, faire de la sobriété, investir cet argent dans des projets caritatifs/sociaux/écologiques. Il est également évidemment possible de ne pas faire d’économie ou de proposer des options différentes.</p>
 
-  <p><u>Signature</u> Intersection, le BDE, le BDS</p>
+  <p><u>Signature</u> Intersection, le BDE, le BDS, le Grand Gala</p>
 
-
+</div>
 
   <form id="surveyForm">
-    <h2>Le sondage</h2>
+    
     <div class="question">
+      <h2>Le sondage</h2>
     <label for="nom">Nom :</label>
     <input type="text" id="nom" name="nom" onchange="updateSavings()"required>
 
@@ -200,7 +199,7 @@
     <div class="question">
       <h3>1. Le PCV</h3>
       <p>Le PCV se réunit deux fois par an afin de répartir l’argent principalement reçu au Trium aux différentes associations. Il est composé des président.e.s BDE et Trium ainsi que des trésorier.e.s de ces deux associations. À cela s’ajoutent deux membres extraordinaires tirés au sort parmi des volontaires, sous réserve qu’ils n’aient pas déjà été sélectionnés à un précédent PCV, qu’ils soient aux Mines depuis plus de 5 mois, qu’ils ne soient actuellement ni membres du BDE ni membre du bureau Trium ni président.e/trésorier.e d’une association demandant plus de 500€ au PCV.</p>
-      <label for="pcv" style="color: blue;"> Êtes-vous satisfait du système du PCV ? </label>
+      <label for="pcv" style="color: blue;"> <b>Êtes-vous satisfait du système du PCV ? </b></label>
       <select id="pcv" name="pcv" required>
         <option value="" disabled selected hidden>Choisissez une option</option>
         <option value="Oui tout à fait" onchange="updateSavings()">Oui tout à fait</option>
@@ -209,14 +208,14 @@
         <option value="Non pas vraiment" onchange="updateSavings()">Non pas vraiment</option>
         <option value="Non pas du tout" onchange="updateSavings()">Non pas du tout</option>
       </select><br>
-      <label for= "pcv_remarque" style="color: blue;"> Remarques diverses :</label><br>
+      <label for= "pcv_remarque" style="color: blue;"> <b>Remarques diverses :</b></label><br>
       <textarea id="pcv_remarque" name="pcv_remarque" onchange="updateSavings()" style="width: 100%; border-radius: 6px; padding: 8px; border: 1px solid #ccc;"></textarea><br>
     </div>
   
     <div class="question">
       <h3>2. Les amphis entreprise</h3>
       <label for="amphis_entreprise" style="color: blue;">
-        Que pensez-vous de l’opinion suivante :<br>
+      <b>Que pensez-vous de l’opinion suivante :</b><br>
         <i>“Les seules fois où je pourrais aller en amphi entreprise, c’est le midi lorsque le repas est offert”</i>
       </label>
       <select id="amphis_entreprise" name="amphis_entreprise" required >
@@ -228,7 +227,7 @@
         <option value="Vraiment pas d’accord"onchange="updateSavings()">Vraiment pas d’accord</option>
       </select>
     
-      <label for="amphis_remarque" style="color: blue;">Remarques diverses :</label>
+      <label for="amphis_remarque" style="color: blue;"><b>Remarques diverses :</b></label>
       <textarea id="amphis_remarque" name="amphis_remarque" onchange="updateSavings()" style="width: 100%; border-radius: 6px; padding: 8px; border: 1px solid #ccc;"></textarea>
     </div>
     
@@ -238,7 +237,7 @@
   <p>L’entreprise Total Energies finance le BDS à hauteur de 3 événements [un amphi, une table ronde et une visite de site], l’équivalent d’environ 12 600€. 
   </p>
   <label for="total_energies_evenements" style="color: blue;">
-    Combien d’événements de Total Énergies souhaitez-vous pour le BDS ?
+  <b>Combien d’événements de Total Énergies souhaitez-vous pour le BDS ?</b>
   </label>
   <select id="total_energies_evenements" name="total_energies_evenements" required >
     <option value="" disabled selected hidden>Choisissez une option</option>
@@ -247,7 +246,7 @@
     <option value="Neutre" onchange="updateSavings()">Neutre</option>
   </select>
 
-  <label for="total_energies_evenements_remarque" style="color: blue;">Remarques diverses :</label>
+  <label for="total_energies_evenements_remarque" style="color: blue;"></b>Remarques diverses :</b></label>
   <textarea id="total_energies_evenements_remarque" name="total_energies_evenements_remarque" onchange="updateSavings()" style="width: 100%; border-radius: 6px; padding: 8px; border: 1px solid #ccc;"></textarea>
 
 
@@ -256,7 +255,7 @@
   <h3>3. Total Énergies - Grand Gala</h3>
   <p>L’entreprise Total Energies finance le Grand Gala à hauteur d’une table (5 000€ pour une table à l’Intercontinental). </p>
   <label for="total_energies_gala" style="color: blue;">
-    Concernant la participation de Total Energies au Grand Gala, souhaitez-vous la maintenir ?
+    <b>Concernant la participation de Total Energies au Grand Gala, souhaitez-vous la maintenir ?</b>
   </label>
   <select id="total_energies_gala" name="total_energies_gala" required onchange="updateSavings()">
     <option value="" disabled selected hidden>Choisissez une option</option>
@@ -267,7 +266,7 @@
     <option value="Non pas du tout" onchange="updateSavings()">Non pas du tout</option>
   </select>
 
-  <label for="total_energies_gala_remarque" style="color: blue;">Remarques diverses :</label>
+  <label for="total_energies_gala_remarque" style="color: blue;"><b>Remarques diverses :</b></label>
   <textarea id="total_energies_gala_remarque" name="total_energies_gala_remarque" onchange="updateSavings()" style="width: 100%; border-radius: 6px; padding: 8px; border: 1px solid #ccc;"></textarea>
 </div>
 
@@ -327,14 +326,14 @@
   </p>
 <p>
 <!-- 1. Le nombre de soirées prévues vous convient-il ? -->
-<label style="color : blue">Le nombre de soirées prévues vous convient-il ?</label><br>
+<label style="color : blue"><b>Le nombre de soirées prévues vous convient-il ?</b></label><br>
 <label><input type="radio" name="soirees_convenues" value="Oui" onchange="updateSavings()"> Oui</label><br>
 <label><input type="radio" name="soirees_convenues" value="Neutre" required onchange="updateSavings()"> Neutre</label><br>
 <label><input type="radio" name="soirees_convenues" value="Non" required onchange="updateSavings()"> Non</label><br>
 </p>
 <p>
 <!-- 2. Combien d’internes souhaitez-vous ? -->
-<label style="color : blue">Combien d’internes souhaitez-vous (5 prévues cette année) ?</label><br>
+<label style="color : blue"><b>Combien d’internes souhaitez-vous (5 prévues cette année) ?</b></label><br>
 <label><input type="radio" name="nb_internes" value="trois" required onchange="updateSavings()"> 3</label><br>
 <label><input type="radio" name="nb_internes" value="quatre" required onchange="updateSavings()"> 4</label><br>
 <label><input type="radio" name="nb_internes" value="cinq" required onchange="updateSavings()"> 5</label><br>
@@ -344,7 +343,7 @@
 </p>
 <p>
 <!-- 3. Combien d’externes souhaitez-vous ? -->
-<label style="color : blue">Combien d’externes souhaitez-vous (5 prévues cette année) ?</label><br>
+<label style="color : blue"><b>Combien d’externes souhaitez-vous (5 prévues cette année) ?</b></label><br>
 <label><input type="radio" name="nb_externes" value="trois" required onchange="updateSavings()"> 3</label><br>
 <label><input type="radio" name="nb_externes" value="quatre" required onchange="updateSavings()"> 4</label><br>
 <label><input type="radio" name="nb_externes" value="cinq" required onchange="updateSavings()"> 5</label><br>
@@ -355,8 +354,7 @@
 
 <p>
 <!-- 4. Êtes-vous prêt à avoir moins d’externes si elles sont de meilleure qualité ? -->
-<label style="color : blue">
-  À budget d’externes constant, je suis prêt à accepter d’avoir moins d’externes si les lieux sont considérés comme vraiment originaux / dignes d’intérêt et donc plus chers.
+<label style="color : blue"><b>À budget d’externes constant, je suis prêt à accepter d’avoir moins d’externes si les lieux sont considérés comme vraiment originaux / dignes d’intérêt et donc plus chers.</b>
 </label><br>
 <label><input type="radio" name="externes_qualite" value="Oui tout à fait" required onchange="updateSavings()"> Oui tout à fait</label><br>
 <label><input type="radio" name="externes_qualite" value="Oui plutôt" required onchange="updateSavings()"> Oui plutôt</label><br>
@@ -369,7 +367,7 @@
  <p>Dans le système actuel, chaque personne paie l’entrée de la soirée, et c’est le système de l’Open Bar qui s’applique (autant d’alcool qu’il en faut). L’alcool représente environ 1000 euros sur une interne, interne dont le coût total est variable mais est d’environ 1500 euros.
 </p>
 <label style="color : blue">
-  Êtes-vous satisfait de ce système d’Open Bar ?
+<b>Êtes-vous satisfait de ce système d’Open Bar ?</b>
 </label><br>
 <label><input type="radio" name="open_bar" value="Oui tout à fait" required onchange="updateSavings()"> Oui tout à fait</label><br>
 <label><input type="radio" name="open_bar" value="Oui plutôt" required onchange="updateSavings()"> Oui plutôt</label><br>
@@ -389,7 +387,7 @@
 <div class="question">
   <h3>6. Le voyage BDE</h3>
 <p>La participation du BDE dans ce voyage a correspondu à 11 000€ cette année pour le voyage à Prague, en plus d’une participation de 5 500€ des mineur.euse.s, pour un total de 16 500€.  Cette année, le BDE souhaite faire payer chaque personne 100€ moins cher que le prix réel de son voyage, et prévoit 50 places, avec un budget. </p>
-  <label for= "voyage_remarque" style="color: blue;"> Remarques diverses :</label>
+  <label for= "voyage_remarque" style="color: blue;"> <b>Remarques diverses :</b></label>
   <textarea id="voyage_remarque" name="voyage_remarque" onchange="updateSavings()" style="width: 100%; border-radius: 6px; padding: 8px; border: 1px solid #ccc;"></textarea>
 </div>
 
@@ -440,7 +438,7 @@
 </fieldset>
     
 
-  <label for="campagne_remarque" style="color: blue;">Remarques :</label>
+  <label for="campagne_remarque" style="color: blue;"><b>Remarques :</b></label>
   <textarea id="campagne_remarque" name="campagne_remarque" onchange="updateSavings()" style="width: 100%; border-radius: 6px; padding: 8px; border: 1px solid #ccc;"></textarea>
 </div>
 
@@ -448,38 +446,38 @@
   <h3>Question 8 - Grand Gala</h3>
 
   <!-- 1. Affirmation gênante -->
-  <label style="color: blue">Laquelle de ces affirmations vous gêne (le plus) :</label><br>
+  <label style="color: blue"><b>Laquelle de ces affirmations vous gêne (le plus) :</b></label><br>
   <label><input type="radio" name="gg_gene" value="Le gala coûte cher pour les étudiants" required onchange="updateSavings()"> Le gala coûte cher pour les étudiants</label><br>
   <label><input type="radio" name="gg_gene" value="Le gala est un événement coûteux en soi" required onchange="updateSavings()"> Le gala est un événement coûteux en soi</label><br>
   <label><input type="radio" name="gg_gene" value="Les partenaires de GG ne seraient pas éthiques" required onchange="updateSavings()"> Les partenaires de GG ne seraient pas éthiques</label><br>
   <label><input type="radio" name="gg_gene" value="Aucune de ces affirmations" required onchange="updateSavings()"> Aucune de ces affirmations</label><br><br>
 
   <!-- 2. Dîner uniquement -->
-  <label style="color: blue">Pour le Grand Gala, voudriez-vous qu’il n’y ait qu’un dîner ?</label><br>
+  <label style="color: blue"><b>Pour le Grand Gala, voudriez-vous qu’il n’y ait qu’un dîner ?</b></label><br>
   <label><input type="radio" name="gg_diner_uniquement" value="Oui" required onchange="updateSavings()"> Oui</label><br>
   <label><input type="radio" name="gg_diner_uniquement" value="Non" required onchange="updateSavings()"> Non</label><br>
   <label><input type="radio" name="gg_diner_uniquement" value="Neutre" required onchange="updateSavings()"> Neutre</label><br><br>
 
   <!-- 3. Soirée uniquement -->
-  <label style="color: blue">Pour le Grand Gala, voudriez-vous qu’il n’y ait qu’une soirée ?</label><br>
+  <label style="color: blue"><b>Pour le Grand Gala, voudriez-vous qu’il n’y ait qu’une soirée ?</b></label><br>
   <label><input type="radio" name="gg_soiree_uniquement" value="Oui" required onchange="updateSavings()"> Oui</label><br>
   <label><input type="radio" name="gg_soiree_uniquement" value="Non" required onchange="updateSavings()"> Non</label><br>
   <label><input type="radio" name="gg_soiree_uniquement" value="Neutre" required onchange="updateSavings()"> Neutre</label><br><br>
 
   <!-- 4. Dîner assis + soirée -->
-  <label style="color: blue">Pour le Grand Gala, voudriez-vous qu’il y ait un dîner assis et une soirée ?</label><br>
+  <label style="color: blue"><b>Pour le Grand Gala, voudriez-vous qu’il y ait un dîner assis et une soirée ?</b></label><br>
   <label><input type="radio" name="gg_diner_soiree" value="Oui" required onchange="updateSavings()"> Oui</label><br>
   <label><input type="radio" name="gg_diner_soiree" value="Non" required onchange="updateSavings()"> Non</label><br>
   <label><input type="radio" name="gg_diner_soiree" value="Neutre" required onchange="updateSavings()"> Neutre</label><br><br>
 
   <!-- 5. Cocktail + soirée -->
-  <label style="color: blue">Pour le Grand Gala, voudriez-vous qu’il y ait un cocktail et une soirée ?</label><br>
+  <label style="color: blue"><b>Pour le Grand Gala, voudriez-vous qu’il y ait un cocktail et une soirée ?</b></label><br>
   <label><input type="radio" name="gg_cocktail_soiree" value="Oui" required onchange="updateSavings()"> Oui</label><br>
   <label><input type="radio" name="gg_cocktail_soiree" value="Non" required onchange="updateSavings()"> Non</label><br>
   <label><input type="radio" name="gg_cocktail_soiree" value="Neutre" required onchange="updateSavings()"> Neutre</label><br><br>
 
   <!-- 6. Idée libre -->
-  <label style="color: blue">Pour le Grand Gala, vous avez une autre idée :</label><br>
+  <label style="color: blue"><b>Pour le Grand Gala, vous avez une autre idée :</b></label><br>
   <textarea name="gg_remarque" style="width: 100%; border-radius: 6px; padding: 8px; border: 1px solid #ccc;"onchange="updateSavings()"></textarea>
 </div>
 
@@ -536,9 +534,9 @@
   <textarea name="dest_economie_autre" rows="3" cols="50" placeholder="Votre proposition..." onchange="updateSavings()"></textarea><br><br>
 
   <!-- 6. Pas d’économie -->
-  <label><input type="radio" name="dest_economie_2" value="Pas d’économie" required onchange="updateSavings()"> Pas d’économie</label><br><br>
+  <label><input type="radio" name="dest_economie_2" value="Pas d’économie" required onchange="updateSavings()"> Pas d’économie 2</label><br><br>
 
-  <label style="color: blue;">Remarques diverses :</label><br>
+  <label style="color: blue;"><b>Remarques diverses :</b></label><br>
  <textarea name="dest_economie_remarques" rows="4" cols="50" onchange="updateSavings()" ></textarea>
 </div>
 
@@ -548,7 +546,7 @@
   <h3>Question 10 - Le projet Intersection</h3>
 
   <!-- Phase informative -->
-  <label style="color: red;">Quel est votre ressenti vis-à-vis de l’utilité de la phase informative du projet Intersection (regroupement des chiffres, recherches sur certains partenariats et consultations des parties prenantes) ?</label><br>
+  <label style="color: red;"><b>Quel est votre ressenti vis-à-vis de l’utilité de la phase informative du projet Intersection (regroupement des chiffres, recherches sur certains partenariats et consultations des parties prenantes) ?</b></label><br>
   <label><input type="radio" name="intersection_informative" value="Très utile" required onchange="updateSavings()"> Très utile</label><br>
   <label><input type="radio" name="intersection_informative" value="Utile" required onchange="updateSavings()"> Utile</label><br>
   <label><input type="radio" name="intersection_informative" value="Neutre" required onchange="updateSavings()"> Neutre</label><br>
@@ -556,7 +554,7 @@
   <label><input type="radio" name="intersection_informative" value="Inutile et contre-productif" required onchange="updateSavings()"> Inutile et contre productif</label><br><br>
 
   <!-- Phase de propositions -->
-  <label style="color: red;">Quel est votre ressenti vis-à-vis de l’utilité de la phase de propositions du projet Intersection (réunions publiques pour les 1A et le sondage à la fin) ?</label><br>
+  <label style="color: red;"><b>Quel est votre ressenti vis-à-vis de l’utilité de la phase de propositions du projet Intersection (réunions publiques pour les 1A et le sondage à la fin) ?</b></label><br>
   <label><input type="radio" name="intersection_proposition" value="Très utile" required onchange="updateSavings()"> Très utile</label><br>
   <label><input type="radio" name="intersection_proposition" value="Utile" required onchange="updateSavings()"> Utile</label><br>
   <label><input type="radio" name="intersection_proposition" value="Neutre" required onchange="updateSavings()"> Neutre</label><br>
@@ -564,7 +562,7 @@
   <label><input type="radio" name="intersection_proposition" value="Inutile et contre-productif" required onchange="updateSavings()"> Inutile et contre productif</label><br><br>
 
   <!-- Pérennisation du travail -->
-  <label style="color: blue;">Voudriez-vous voir le travail de transparence et communication des chiffres de la vie associative pérennisé chaque année par les 2A pour les 1A ?</label><br>
+  <label style="color: blue;"><b>Voudriez-vous voir le travail de transparence et communication des chiffres de la vie associative pérennisé chaque année par les 2A pour les 1A ?</b></label><br>
   <label><input type="radio" name="intersection_perennisation" value="Oui tout à fait" required onchange="updateSavings()"> Oui tout à fait</label><br>
   <label><input type="radio" name="intersection_perennisation" value="Oui plutôt" required onchange="updateSavings()"> Oui plutôt</label><br>
   <label><input type="radio" name="intersection_perennisation" value="Neutre" required onchange="updateSavings()"> Neutre</label><br>
@@ -572,13 +570,13 @@
   <label><input type="radio" name="intersection_perennisation" value="Non pas du tout" required onchange="updateSavings()"> Non pas du tout</label><br><br>
 
   <!-- Remarques -->
-  <label style="color: blue;">Remarques diverses :</label><br>
+  <label style="color: blue;"><b>Remarques diverses :</b></label><br>
   <textarea name="intersection_remarques" style="width: 100%; border-radius: 6px; padding: 8px; border: 1px solid #ccc;" onchange="updateSavings()"></textarea>
 </div>
 
 
 
-    <button type="submit">Cliquer 1 fois pour envoyer </button>
+<button type="submit">Cliquer 1 fois pour envoyer </button>
   </form>
 
   <script>
